@@ -1,26 +1,31 @@
+import { Routes, Route } from 'react-router-dom'
+import Topbar from './components/Topbar'
 import Navbar from './components/Navbar'
-import Hero from './components/sections/Hero'
-import AboutUs from './components/sections/AboutUs'
-import Offers from './components/sections/Offers'
-import VisaCategories from './components/sections/VisaCategories'
-import Countries from './components/sections/Countries'
-import Testimonials from './components/sections/Testimonials'
-import VisaDelivered from './components/sections/VisaDelivered'
-import QueryForm from './components/sections/QueryForm'
 import Footer from './components/Footer'
+import CustomCursor from './components/CustomCursor'
+import ScrollToTop from './components/ScrollToTop'
+
+// Pages
+import Home from './pages/Home'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import CookiePolicy from './pages/CookiePolicy'
+import TermsOfService from './pages/TermsOfService'
 
 function App() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--t-bg)', transition: 'background-color 0.4s ease' }}>
+    <div className="min-h-screen">
+      <CustomCursor />
+      <ScrollToTop />
+      {/* <Topbar /> */}
       <Navbar />
-      <Hero />
-      <AboutUs />
-      <Offers />
-      <VisaCategories />
-      <Countries />
-      <Testimonials />
-      <VisaDelivered />
-      <QueryForm />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+      </Routes>
+
       <Footer />
     </div>
   )

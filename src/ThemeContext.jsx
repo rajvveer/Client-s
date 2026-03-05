@@ -4,10 +4,7 @@ const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
     const [theme, setTheme] = useState(() => {
-        if (typeof window !== 'undefined') {
-            return localStorage.getItem('visa-theme') || 'dark';
-        }
-        return 'dark';
+        return localStorage.getItem('visa-theme') || 'blue-gold';
     });
 
     useEffect(() => {
@@ -15,7 +12,9 @@ export function ThemeProvider({ children }) {
         localStorage.setItem('visa-theme', theme);
     }, [theme]);
 
-    const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    const toggleTheme = () => {
+        setTheme(prev => prev === 'light' ? 'blue-gold' : 'light');
+    };
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -24,6 +23,7 @@ export function ThemeProvider({ children }) {
     );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useTheme() {
     const context = useContext(ThemeContext);
     if (!context) throw new Error('useTheme must be used within ThemeProvider');

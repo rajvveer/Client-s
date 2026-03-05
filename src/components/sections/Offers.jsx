@@ -42,8 +42,8 @@ export default function Offers() {
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
                 <motion.div initial={{ opacity: 0, y: 25 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }} className="text-center mb-14">
-                    <span className="inline-block px-4 py-1.5 rounded-full glass-card-gold text-gold text-sm font-medium mb-4">Our Services</span>
-                    <h2 className="text-3xl md:text-5xl font-[Outfit] font-bold mb-3">
+                    <span className="inline-block px-4 py-1.5 rounded-full gradient-gold text-navy font-bold text-sm tracking-wider uppercase mb-4">Our Services</span>
+                    <h2 className="text-3xl md:text-5xl font-heading font-bold mb-3">
                         <span className="t-text">Exclusive Visa </span><span className="text-gradient-gold">Packages</span>
                     </h2>
                     <p className="t-text-muted max-w-lg mx-auto">Choose from our tailored visa packages designed for your specific travel needs</p>
@@ -57,12 +57,12 @@ export default function Offers() {
                                     <span className="px-3 py-1 rounded-full gradient-gold text-navy text-xs font-bold flex items-center gap-1"><Crown className="w-3 h-3" /> Popular</span>
                                 </div>
                             )}
-                            <div className={`w-13 h-13 rounded-2xl flex items-center justify-center mb-4 ${o.popular ? 'bg-gold/15' : 'bg-sky-blue/10'}`}>
+                            <div className={`w-13 h-13 rounded-2xl flex items-center justify-center mb-4 ${o.popular ? 'bg-gold/15' : 'bg-[var(--t-blob-1)]'}`}>
                                 <o.icon className={`w-6 h-6 ${o.popular ? 'text-gold' : 'text-sky-blue'}`} />
                             </div>
-                            <h3 className="text-lg font-[Outfit] font-bold t-text mb-1.5">{o.title}</h3>
+                            <h3 className="text-lg font-heading font-bold t-text mb-1.5">{o.title}</h3>
                             <p className="t-text-muted text-sm mb-3 leading-relaxed">{o.description}</p>
-                            <div className="text-2xl font-[Outfit] font-bold text-gradient-gold mb-4">{o.price}</div>
+                            <div className="text-2xl font-heading font-bold text-gradient-gold mb-4">{o.price}</div>
                             <ul className="space-y-2 mb-5">
                                 {o.features.map((f, j) => (
                                     <li key={j} className="flex items-center gap-2 text-sm t-text-muted">

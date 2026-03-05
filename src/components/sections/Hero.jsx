@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Phone } from 'lucide-react';
@@ -5,17 +6,18 @@ import { ArrowRight, Phone } from 'lucide-react';
 /* ---------- City Images ---------- */
 import sydneyImg from '../../assets/e30834e5-3d1d-413a-a4be-234a0262ba02.png';
 import dubaiImg from '../../assets/dubai.png';
-import londonImg from '../../assets/london.png';
 import nycImg from '../../assets/nyc.png';
 import torontoImg from '../../assets/toranto.png';
+import aucklandImg from '../../assets/auckland.png';
+
 
 /* ---------- City Data ---------- */
 const cities = [
     { name: 'Darwin, Australia', image: sydneyImg },
     { name: 'Dubai, UAE', image: dubaiImg },
-    { name: 'London, UK', image: londonImg },
     { name: 'New York, USA', image: nycImg },
     { name: 'Toronto, Canada', image: torontoImg },
+    { name: 'Auckland, New Zealand', image: aucklandImg },
 ];
 
 const CYCLE_INTERVAL = 7000;
@@ -78,8 +80,8 @@ function ProgressDots({ activeIndex, total, onDotClick }) {
                     key={i}
                     onClick={() => onDotClick(i)}
                     className={`h-2 rounded-full transition-all duration-500 ${i === activeIndex
-                            ? 'w-8 bg-gradient-to-r from-gold-dark to-gold-light'
-                            : 'w-2'
+                        ? 'w-8 bg-gradient-to-r from-gold-dark to-gold-light'
+                        : 'w-2'
                         }`}
                     style={i !== activeIndex ? { backgroundColor: 'var(--t-hero-dots)' } : undefined}
                     aria-label={`Go to ${cities[i].name}`}
@@ -116,8 +118,8 @@ export default function Hero() {
         >
             <AustraliaMapBg />
 
-            <div className="absolute top-20 left-20 w-72 h-72 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: 'var(--t-hero-glow)' }} />
-            <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full blur-3xl pointer-events-none" style={{ backgroundColor: 'var(--t-hero-glow)' }} />
+            <div className="absolute top-0 left-[-10%] w-[600px] h-[600px] bg-[var(--t-blob-1)] rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-[var(--t-blob-2)] rounded-full blur-[120px] pointer-events-none" />
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -160,7 +162,7 @@ export default function Hero() {
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </a>
                             <a
-                                href="tel:+919999999999"
+                                href="tel:+917719662207"
                                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border-2 font-semibold text-sm tracking-wider uppercase hover:border-gold/40 transition-all duration-300"
                                 style={{
                                     borderColor: 'var(--t-hero-btn-border)',
@@ -168,7 +170,7 @@ export default function Hero() {
                                 }}
                             >
                                 <Phone className="w-4 h-4" />
-                                Book a Free Call
+                                Book a Free Assessment
                             </a>
                         </div>
 
@@ -181,8 +183,8 @@ export default function Hero() {
                         <div className="grid grid-cols-3 gap-6 lg:gap-8 mt-10">
                             {[
                                 { value: '120+', label: 'Global Partners' },
-                                { value: '12+', label: 'Years of Experience' },
-                                { value: '100K', label: 'Satisfied Clients' },
+                                { value: '10+', label: 'Years of Experience' },
+                                { value: '5K', label: 'Satisfied Clients' },
                             ].map((stat, i) => (
                                 <motion.div
                                     key={i}
@@ -208,7 +210,10 @@ export default function Hero() {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="order-1 lg:order-2 flex justify-center"
                     >
-                        <div className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl relative" style={{ minHeight: '350px' }}>
+                        <div className="w-full max-w-lg lg:max-w-xl xl:max-w-2xl relative flex items-center justify-center p-8" style={{ minHeight: '350px' }}>
+                            {/* Organic Bluish Background Shape behind the model */}
+                            <div className="absolute inset-0 bg-[var(--t-bg-alt)] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] opacity-80 mix-blend-multiply transition-colors duration-[4000ms] pointer-events-none shadow-inner" style={{ transform: 'rotate(-5deg) scale(0.95)' }} />
+
                             <AnimatePresence mode="wait">
                                 <motion.img
                                     key={city.name}
@@ -218,7 +223,7 @@ export default function Hero() {
                                     initial="enter"
                                     animate="center"
                                     exit="exit"
-                                    className="w-full h-auto drop-shadow-2xl"
+                                    className="relative z-10 w-[95%] h-auto drop-shadow-2xl"
                                 />
                             </AnimatePresence>
                         </div>

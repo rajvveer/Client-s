@@ -1,7 +1,8 @@
 import { Globe, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowUp } from 'lucide-react';
-
-const quickLinks = ['Tourist Visa', 'Business Visa', 'Student Visa', 'Work Visa', 'Family Visa', 'Immigration'];
-const destinations = ['United States', 'United Kingdom', 'Canada', 'Australia', 'Schengen', 'UAE'];
+import { Link as RouterLink } from 'react-router-dom';
+import logoImage from '../assets/Caspia North Overseas.png';
+const quickLinks = ['Tourist Visa', 'PR Program', 'Student Visa', 'Family Visa', 'Immigration'];
+const destinations = ['United States', 'United Kingdom', 'Canada', 'Australia', 'Schengen', 'UAE', 'New Zealand'];
 
 export default function Footer() {
     const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -19,13 +20,11 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
                     {/* Brand */}
                     <div>
-                        <a href="#home" className="flex items-center gap-3 mb-5">
-                            <div className="w-10 h-10 rounded-xl gradient-gold flex items-center justify-center">
-                                <Globe className="w-5 h-5 text-navy" />
-                            </div>
-                            <span className="text-xl font-bold font-[Outfit]">
-                                <span className="transition-colors duration-400" style={{ color: 'var(--t-footer-heading)' }}>Visa</span>
-                                <span className="text-gradient-gold">Global</span>
+                        <a href="#home" className="flex flex-col items-start gap-4 mb-6 -ml-2">
+                            <img src={logoImage} alt="Caspia North Overseas Logo" className="w-32 lg:w-48 h-auto object-contain drop-shadow-md" />
+                            <span className="text-2xl font-bold font-heading">
+                                <span className="text-gradient-gold">Caspia North</span>
+                                <span className="transition-colors duration-400" style={{ color: 'var(--t-footer-heading)' }}> Overseas</span>
                             </span>
                         </a>
                         <p className="text-sm leading-relaxed mb-6 transition-colors duration-400" style={{ color: 'var(--t-footer-text)' }}>
@@ -51,7 +50,7 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="font-[Outfit] font-bold mb-5 transition-colors duration-400" style={{ color: 'var(--t-footer-heading)' }}>Visa Services</h4>
+                        <h4 className="font-heading font-bold mb-5 transition-colors duration-400" style={{ color: 'var(--t-footer-heading)' }}>Visa Services</h4>
                         <ul className="space-y-3">
                             {quickLinks.map(link => (
                                 <li key={link}>
@@ -63,7 +62,7 @@ export default function Footer() {
 
                     {/* Destinations */}
                     <div>
-                        <h4 className="font-[Outfit] font-bold mb-5 transition-colors duration-400" style={{ color: 'var(--t-footer-heading)' }}>Destinations</h4>
+                        <h4 className="font-heading font-bold mb-5 transition-colors duration-400" style={{ color: 'var(--t-footer-heading)' }}>Destinations</h4>
                         <ul className="space-y-3">
                             {destinations.map(d => (
                                 <li key={d}>
@@ -75,19 +74,19 @@ export default function Footer() {
 
                     {/* Contact */}
                     <div>
-                        <h4 className="font-[Outfit] font-bold mb-5 transition-colors duration-400" style={{ color: 'var(--t-footer-heading)' }}>Contact Us</h4>
+                        <h4 className="font-heading font-bold mb-5 transition-colors duration-400" style={{ color: 'var(--t-footer-heading)' }}>Contact Us</h4>
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
                                 <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
-                                <span className="text-sm transition-colors duration-400" style={{ color: 'var(--t-footer-text)' }}>123 Visa Tower, Business Bay, Dubai, UAE</span>
+                                <span className="text-sm transition-colors duration-400" style={{ color: 'var(--t-footer-text)' }}>SCO NO. 59 D, THIRD FLOOR, CITY HEART, KHARAR, TEHSIL KHARAR, DISTT. SAS NAGAR MOHALI</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-4 h-4 text-gold flex-shrink-0" />
-                                <span className="text-sm transition-colors duration-400" style={{ color: 'var(--t-footer-text)' }}>+971 4 123 4567</span>
+                                <span className="text-sm transition-colors duration-400" style={{ color: 'var(--t-footer-text)' }}>+91 7719662207</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-4 h-4 text-gold flex-shrink-0" />
-                                <span className="text-sm transition-colors duration-400" style={{ color: 'var(--t-footer-text)' }}>info@visaglobal.com</span>
+                                <span className="text-sm transition-colors duration-400" style={{ color: 'var(--t-footer-text)' }}>info@caspianorthoverseas.com</span>
                             </li>
                         </ul>
                     </div>
@@ -95,11 +94,11 @@ export default function Footer() {
 
                 {/* Bottom */}
                 <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid var(--t-footer-border)' }}>
-                    <p className="text-sm transition-colors duration-400" style={{ color: 'var(--t-footer-text)' }}>© 2026 VisaGlobal. All rights reserved.</p>
+                    <p className="text-sm transition-colors duration-400" style={{ color: 'var(--t-footer-text)' }}>© 2026 Caspia North Overseas. All rights reserved.</p>
                     <div className="flex gap-6">
-                        {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map(t => (
-                            <a key={t} href="#" className="text-xs hover:text-gold transition-colors" style={{ color: 'var(--t-footer-text)' }}>{t}</a>
-                        ))}
+                        <RouterLink to="/privacy-policy" className="text-xs hover:text-gold transition-colors" style={{ color: 'var(--t-footer-text)' }}>Privacy Policy</RouterLink>
+                        <RouterLink to="/terms-of-service" className="text-xs hover:text-gold transition-colors" style={{ color: 'var(--t-footer-text)' }}>Terms of Service</RouterLink>
+                        <RouterLink to="/cookie-policy" className="text-xs hover:text-gold transition-colors" style={{ color: 'var(--t-footer-text)' }}>Cookie Policy</RouterLink>
                     </div>
                     <button
                         onClick={scrollTop}
