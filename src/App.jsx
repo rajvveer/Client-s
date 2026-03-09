@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom'
 import Topbar from './components/Topbar'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import CustomCursor from './components/CustomCursor'
 import ScrollToTop from './components/ScrollToTop'
 
 // Pages
@@ -14,7 +13,6 @@ import TermsOfService from './pages/TermsOfService'
 function App() {
   return (
     <div className="min-h-screen">
-      <CustomCursor />
       <ScrollToTop />
       {/* <Topbar /> */}
       <Navbar />
