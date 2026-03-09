@@ -54,10 +54,10 @@ const achievements = [
     },
     {
         icon: Trophy,
-        value: 7,
+        value: 'All',
         suffix: '',
         label: 'Countries Served',
-        description: 'Canada, USA, Gulf Countries & Australia',
+        description: 'Worldwide',
         color: 'text-purple-400',
         bg: 'from-purple-500/15 to-purple-500/5',
         border: 'hover:border-purple-400/40',
@@ -162,7 +162,11 @@ export default function Achievements() {
                                     </div>
                                     <div>
                                         <div className={`text-4xl font-heading font-extrabold ${item.color} leading-none mb-1`}>
-                                            <AnimatedCounter target={item.value} suffix={item.suffix} isDecimal={item.isDecimal} isInView={show} />
+                                            {typeof item.value === 'number' ? (
+                                                <AnimatedCounter target={item.value} suffix={item.suffix} isDecimal={item.isDecimal} isInView={show} />
+                                            ) : (
+                                                <span>{item.value}{item.suffix}</span>
+                                            )}
                                         </div>
                                         <div className="text-base font-heading font-bold t-text mb-1">{item.label}</div>
                                         <div className="text-sm t-text-muted leading-relaxed">{item.description}</div>
