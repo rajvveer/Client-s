@@ -1,4 +1,4 @@
-import { Globe, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowUp } from 'lucide-react';
+import { Globe, Mail, Phone, MapPin, Facebook, Instagram, ArrowUp } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
 import logoImage from '../assets/Caspia North Overseas.png';
 const quickLinks = ['Tourist Visa', 'PR Program', 'Student Visa', 'Family Visa', 'Immigration'];
@@ -31,10 +31,15 @@ export default function Footer() {
                             Your trusted partner for hassle-free visa processing and immigration services worldwide.
                         </p>
                         <div className="flex gap-3">
-                            {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                            {[
+                                { Icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61578476152088' },
+                                { Icon: Instagram, href: 'https://www.instagram.com/caspianorthoverseas/' },
+                            ].map(({ Icon, href }, i) => (
                                 <a
                                     key={i}
-                                    href="#"
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="w-9 h-9 rounded-lg flex items-center justify-center hover:text-gold transition-all"
                                     style={{
                                         backgroundColor: 'var(--t-footer-surface)',
